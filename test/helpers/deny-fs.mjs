@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Test-time isolation tripwire: any filesystem access whose path matches the deny pattern throws.
 // Preloaded into every test process (and every CLI child) by scripts/run-tests.mjs.
 // This is a tripwire to prove the kit never reaches for a private vault; it is NOT a security sandbox.

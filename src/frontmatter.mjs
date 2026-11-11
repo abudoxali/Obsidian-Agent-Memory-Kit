@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Minimal YAML-frontmatter reader/writer. It supports the flat subset VYMEM itself writes
 // (scalars, booleans, inline lists, "- item" lists). Nested YAML maps are not interpreted.
 import { VymemError } from './errors.mjs';

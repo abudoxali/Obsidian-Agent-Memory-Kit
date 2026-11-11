@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Structured, machine-readable errors. Every refusal VYMEM makes carries a stable `code`.
 export class VymemError extends Error {
   constructor(code, message, details = {}) {

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Owner-controlled canonical approval: agents stage, only the local operator applies.
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';

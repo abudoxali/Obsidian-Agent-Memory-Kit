@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Owner-controlled canonical changes. Agents can only STAGE proposals (propose_update).
 // Applying or rejecting a proposal is an operator action available through the local CLI only;
 // it is deliberately not reachable from the MCP server.

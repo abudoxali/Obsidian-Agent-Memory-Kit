@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Knowledge search and read over the vault. Pure keyword scoring: no embeddings, no network.
 import fs from 'node:fs';
 import path from 'node:path';

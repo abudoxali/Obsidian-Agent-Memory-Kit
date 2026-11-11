@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Secret detection / redaction. Detection is pattern based and therefore best-effort:
 // it reduces accidental leakage into notes, it is not a guarantee.
 import { VymemError } from './errors.mjs';

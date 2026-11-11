@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Acceptance cases 11-12: configuration merging and safe, reversible install/uninstall.
 // All client config files live under a throwaway home directory; the real home is never touched.
 import { test, beforeEach, afterEach } from 'node:test';

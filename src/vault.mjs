@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Vault: the single gateway for every filesystem path VYMEM touches inside the Obsidian vault.
 // Path policy lives here: relative paths only, no traversal, no symlink escape, blocked folders,
 // read allowlist, markdown only, and writes confined to explicit areas.

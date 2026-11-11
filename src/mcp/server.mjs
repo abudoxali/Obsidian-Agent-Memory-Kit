@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Local MCP gateway (stdio, JSON-RPC 2.0). Exposes read tools and propose-only write tools.
 // There is intentionally NO tool that modifies canonical notes: approval is a local CLI action.
 import { VymemError, errorPayload } from '../errors.mjs';

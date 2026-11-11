@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Read-only git helpers. VYMEM never runs a mutating git command.
 import fs from 'node:fs';
 import path from 'node:path';

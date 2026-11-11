@@ -1,7 +1,7 @@
 {
   "manifest_version": 1,
-  "verified": "2026-11-11",
-  "policy": "Real captures are never published without the owner's approval of the final sanitized file. Synthetic items must never be described as production captures.",
+  "verified": "2026-11-12",
+  "policy": "Only the owner-approved sanitized captures listed with published:true are included. Each is pinned by sha256; a test fails if an image under docs/screenshots/ is not listed here with a matching hash and owner_approval 'approved'.",
   "published": [
     {
       "file": "docs/showcase/demo-terminal.svg",
@@ -42,31 +42,43 @@
       "redactions": "none",
       "claim_supported": "none (identity only)",
       "privacy_review": "automated: no metadata chunks, no local references"
-    }
-  ],
-  "withheld_real_captures": [
-    {
-      "candidate": "galaxy-sanitized",
-      "classification": "real_sanitized_capture",
-      "label_if_approved": "Sanitized capture from a private deployment.",
-      "capture_source": "Obsidian desktop screenshot of the origin vault's 3D knowledge graph (private deployment)",
-      "origin_capture_date": "2026-11-11",
-      "redactions": ["cropped to the graph area (window chrome, tabs, search box, folder legend removed)", "five opaque masks over project-name labels"],
-      "claim_supported": "The origin deployment renders its vault as a navigable knowledge graph.",
-      "privacy_review": "AUTOMATED CROP/MASK ONLY - PENDING OWNER APPROVAL",
-      "published": false
     },
     {
-      "candidate": "handoff-sanitized",
+      "file": "docs/screenshots/galaxy-sanitized.png",
+      "sha256": "1fa06e8da4a3e1152b31c52eeb4cbe10c283e2b01967ab095b468ddd1abbf893",
       "classification": "real_sanitized_capture",
-      "label_if_approved": "Sanitized capture from a private deployment.",
-      "capture_source": "Obsidian desktop screenshot of a hook-written, unapproved handoff produced after a real Codex CLI session in a fixture repository",
+      "label": "Sanitized capture from a private deployment.",
+      "capture_source": "Obsidian desktop screenshot of the origin vault's 3D knowledge graph (private deployment); not output of the standalone VYMEM release",
       "origin_capture_date": "2026-11-11",
-      "redactions": ["cropped to the evidence section", "opaque mask over a record identifier"],
-      "claim_supported": "A lifecycle hook wrote an unapproved, git-evidence-based handoff.",
-      "privacy_review": "AUTOMATED CROP/MASK ONLY - PENDING OWNER APPROVAL",
-      "published": false
+      "real_or_synthetic": "real (sanitized)",
+      "redactions": [
+        "cropped to the graph area (window chrome, tabs, search box, folder legend removed)",
+        "five opaque masks over project-name labels"
+      ],
+      "claim_supported": "The origin deployment renders its knowledge vault as a connected graph in Obsidian. It supports no claim about VYMEM's standalone behaviour.",
+      "metadata_check": "PNG chunks: IHDR, sRGB, gAMA, pHYs, IDAT, IEND (no text, EXIF or time chunks)",
+      "privacy_review": "owner reviewed the sanitized contact sheet and approved publication (2026-11-12); final pixels re-inspected at 3x on the masked regions; file hash matches the reviewed candidate",
+      "owner_approval": "approved",
+      "published": true
+    },
+    {
+      "file": "docs/screenshots/handoff-sanitized.png",
+      "sha256": "d52b3685358caba1188a4fccd6a70e4d3326cc133311bbedb974a35b416c6f1b",
+      "classification": "real_sanitized_capture",
+      "label": "Sanitized capture from a private deployment.",
+      "capture_source": "Obsidian desktop screenshot of a hook-written, unapproved handoff produced after a real Codex CLI session in a fixture repository (private deployment); not output of the standalone VYMEM release",
+      "origin_capture_date": "2026-11-11",
+      "real_or_synthetic": "real (sanitized)",
+      "redactions": [
+        "cropped to the evidence section",
+        "opaque mask over a record identifier"
+      ],
+      "claim_supported": "In the origin deployment a lifecycle hook wrote an unapproved, git-evidence-based handoff. It supports no claim about VYMEM live-client behaviour.",
+      "metadata_check": "PNG chunks: IHDR, sRGB, gAMA, pHYs, IDAT, IEND (no text, EXIF or time chunks)",
+      "privacy_review": "owner reviewed the sanitized contact sheet and approved publication (2026-11-12); file hash matches the reviewed candidate",
+      "owner_approval": "approved",
+      "published": true
     }
   ],
-  "not_prepared": "The remaining origin screenshots (registries, sentinel tables, infrastructure, portfolio, workspace) show hardware/infrastructure inventory, repository counts or project names throughout and would need redaction decisions by the owner; synthetic equivalents are used instead."
+  "not_published": "Raw screenshots and the other 12 origin screenshots are not in the repository or its history; they show hardware/infrastructure inventory, repository counts or project names throughout."
 }

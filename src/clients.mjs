@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Client integrations (Claude Code, Codex, Antigravity): MCP registration + lifecycle hooks.
 // Rules: never overwrite foreign entries, merge instead; back up before every change; skip the write
 // (and the backup) when nothing would change; remove only entries carrying VYMEM's marker.

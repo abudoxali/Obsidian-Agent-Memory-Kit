@@ -3,15 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "description": "VYMEM - local-first shared memory for AI coding agents, stored in your Obsidian vault and served over MCP.",
+  "license": "Apache-2.0",
   "type": "module",
-  "bin": { "vymem": "./bin/vymem.mjs" },
-  "engines": { "node": ">=20.0.0" },
+  "bin": {
+    "vymem": "./bin/vymem.mjs"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "test": "node scripts/run-tests.mjs",
     "demo": "node examples/run-demo.mjs",
     "audit:privacy": "node scripts/privacy-scan.mjs"
   },
-  "keywords": ["mcp", "obsidian", "coding-agents", "memory", "claude-code", "codex"],
-  "repository": { "type": "git", "url": "git+https://github.com/abudoxali/Obsidian-Agent-Memory-Kit.git" },
+  "keywords": [
+    "mcp",
+    "obsidian",
+    "coding-agents",
+    "memory",
+    "claude-code",
+    "codex"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abudoxali/Obsidian-Agent-Memory-Kit.git"
+  },
   "dependencies": {}
 }

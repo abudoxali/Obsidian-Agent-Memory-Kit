@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Shared test fixtures: a throwaway home, vault, config and git repositories.
 import fs from 'node:fs';
 import os from 'node:os';

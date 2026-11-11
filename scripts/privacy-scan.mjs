@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Release gate: scans every file in the working tree (and optionally the git history / index) for
 // personal identifiers, private paths, credentials, hostnames/IPs and image metadata.
 // Usage: node scripts/privacy-scan.mjs [--history]   (exit code 1 on any finding)

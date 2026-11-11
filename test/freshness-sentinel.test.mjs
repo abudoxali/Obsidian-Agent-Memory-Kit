@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Acceptance cases 13-14: freshness detection and optional Sentinel operation.
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';

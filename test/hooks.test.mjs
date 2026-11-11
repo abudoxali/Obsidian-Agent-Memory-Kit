@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Lifecycle hooks (simulated client payloads) and cross-agent retrieval through the briefing.
 // NOTE: payloads are simulated; no real Claude Code / Codex / Antigravity session is run here.
 import { test, before, after } from 'node:test';

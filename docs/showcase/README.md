@@ -1,6 +1,6 @@
 # Showcase
 
-Everything published here is either **synthetic** or a diagram. It is labelled accordingly. No screenshot of the private deployment VYMEM came from is included.
+Everything published here is **synthetic**, a diagram, brand artwork, or one of two owner-approved sanitized real captures. Each is labelled accordingly.
 
 | File | Label | What it shows | Supports |
 | --- | --- | --- | --- |
@@ -18,6 +18,9 @@ node scripts/render-transcript.mjs docs/showcase/demo-transcript.txt docs/showca
 
 ## Real captures from the private deployment
 
-The origin system has 14 real Obsidian screenshots (knowledge graph, registries, sentinel views, hook-written handoffs). They contain personal project names, hardware and infrastructure inventory, repository counts and the owner's environment, so none are published. Two sanitized candidates (a cropped, masked graph view and a cropped, masked hook-written handoff) are held **outside this repository** pending the owner's explicit approval. If approved, they will be added with the caption *"Sanitized capture from a private deployment."* and a manifest entry with `classification: real_sanitized_capture`.
+| File | Label | Shows | Redactions | Status |
+| --- | --- | --- | --- | --- |
+| [`../screenshots/galaxy-sanitized.png`](../screenshots/galaxy-sanitized.png) | *Sanitized capture from a private deployment.* | the origin vault as a 3D knowledge graph in Obsidian | cropped to the graph; 5 opaque masks over project-name labels | owner-approved 2026-11-12 |
+| [`../screenshots/handoff-sanitized.png`](../screenshots/handoff-sanitized.png) | *Sanitized capture from a private deployment.* | a hook-written, unapproved handoff from a fixture repository | cropped to the evidence section; opaque mask over a record identifier | owner-approved 2026-11-12 |
 
-See [`provenance-manifest.json`](provenance-manifest.json) for the machine-readable record, including the review status of every item.
+These are captures of the **origin deployment**, not of this standalone release, and they are not evidence that VYMEM works with any live client. The other 12 origin screenshots (hardware and infrastructure inventory, repository counts, project names) and all raw captures are **not** in this repository or its history. Hashes, metadata checks and review status are in [`provenance-manifest.json`](provenance-manifest.json); `npm test` fails if an image under `docs/screenshots/` is missing from the manifest or its hash differs.

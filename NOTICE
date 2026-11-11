@@ -1,0 +1,29 @@
+VYMEM - Shared Memory for Coding Agents
+Copyright 2026 The VYMEM authors
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Third-party code
+  None. VYMEM has no runtime or development dependencies; it uses only the
+  Node.js standard library. No third-party source code is included or modified.
+
+Brand artwork (assets/)
+  The VYMEM mark, horizontal logo and banner were supplied by the project
+  owner as original brand artwork for this project; the social preview is
+  derived from them. Fonts are referenced by generic family names and are not
+  bundled.
+
+Screenshots (docs/screenshots/)
+  Two screenshots were captured by the project owner from a private
+  deployment, sanitized (cropped and masked) before publication, and are
+  published with the owner's approval. They depict the user interface of
+  third-party software (Obsidian and a community graph plugin). Those
+  products and their names belong to their respective owners and are not
+  affiliated with or endorsed by this project.
+
+Trademarks
+  "VYMEM" and the VYMEM logo are working brand names of the project owner.
+  Section 6 of the Apache License does not grant permission to use them, and
+  no trademark registration or clearance is claimed. "Claude Code", "Codex",
+  "Antigravity" and "Obsidian" are names of their respective owners and are
+  used only to describe compatibility.

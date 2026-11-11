@@ -13,4 +13,6 @@ Thanks for looking. A few rules keep VYMEM small and trustworthy.
 npm test && node examples/run-demo.mjs --quiet && npm run audit:privacy
 ```
 
-The license is not yet chosen (see README); contributions cannot be accepted into the code base until it is.
+## License
+
+VYMEM is licensed under Apache-2.0 (see `LICENSE`). By submitting a contribution you agree, per Section 5 of the license, that it is licensed under the same terms, with the express patent grant of Section 3 for patent claims you are able to license. Add `// SPDX-License-Identifier: Apache-2.0` to new original source files. Do not add third-party code or assets without recording their license in `NOTICE` first; if you cannot license something under Apache-2.0, do not submit it.

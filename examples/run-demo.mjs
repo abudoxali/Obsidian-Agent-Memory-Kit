@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// SPDX-License-Identifier: Apache-2.0
 // End-to-end VYMEM demonstration on a SYNTHETIC vault with two fictional projects.
 //
 // What is real: the vault, the git repositories, the CLI, and two independent MCP gateway processes that

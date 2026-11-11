@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Renders a plain-text demo transcript as an SVG "terminal" image (for docs/showcase).
 // Usage: node scripts/render-transcript.mjs <transcript.txt> <out.svg>
 import fs from 'node:fs';

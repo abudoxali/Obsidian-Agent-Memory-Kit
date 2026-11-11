@@ -4,6 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/abudoxali/Obsidian-Agent-Memory-Kit/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/abudoxali/Obsidian-Agent-Memory-Kit/actions/workflows/ci.yml/badge.svg"></a>
+  <a href="LICENSE"><img alt="License: Apache-2.0" src="https://img.shields.io/badge/license-Apache--2.0-blue"></a>
   <img alt="Node.js >=20" src="https://img.shields.io/badge/node-%3E%3D20-339933?logo=node.js&logoColor=white">
   <img alt="Runtime dependencies: 0" src="https://img.shields.io/badge/runtime%20dependencies-0-8B5CF6">
 </p>
@@ -12,7 +13,7 @@
 
 **VYMEM is a local-first toolkit that gives several AI coding agents one shared, evidence-backed memory: Markdown notes in your own Obsidian vault, served through a local MCP gateway, with owner-controlled approval of anything canonical.**
 
-> **Status: early (v0.1.0), not independently validated.** The code is covered by an automated suite and a repeatable synthetic demo, but it has **not** been run against live Claude Code, Codex or Antigravity sessions by this project's tests. Read [Compatibility](docs/compatibility.md) and [Limitations](#limitations) before relying on it. No license has been selected yet - see [License](#license).
+> **Status: early pre-release (v0.1.0), not production-ready.** The automated suite (45 tests), the synthetic demo and the privacy gate pass on Windows locally and in CI on Ubuntu, Windows and macOS with Node 20, 22 and 24 (see [Compatibility](docs/compatibility.md)). A real Claude Code binary has been verified to connect to the registered MCP server; **real-client lifecycle behaviour (hooks driving a live agent session) has not been validated** for any client. Licensed under [Apache-2.0](LICENSE). Read [Limitations](#limitations) before relying on it.
 
 ## The problem
 
@@ -52,11 +53,11 @@ More detail: [How it works](docs/how-it-works.md) · [Architecture](docs/archite
 
 ## Supported AI clients
 
-| Client | MCP registration | Lifecycle hooks | Verified by VYMEM's own tests |
+| Client | MCP registration | Lifecycle hooks | Verification level (details: [compatibility](docs/compatibility.md)) |
 | --- | --- | --- | --- |
-| Claude Code | `~/.claude.json` | `~/.claude/settings.json` | Config merge/uninstall and hook command execution with **simulated** payloads. No live session. |
-| Codex | `~/.codex/config.toml` (marked block) | `~/.codex/hooks.json` | Same. Codex requires you to trust new hooks in its own UI. |
-| Antigravity | `~/.gemini/config/mcp_config.json` | `~/.gemini/config/hooks.json` | Same. Hook behaviour on some platforms is reported to be inconsistent. |
+| Claude Code | `~/.claude.json` | `~/.claude/settings.json` | Config merge/uninstall and hook commands with **simulated** payloads (CI); **actual MCP connection verified** with the real Claude Code 2.1.319 binary in an isolated home (`claude mcp list`: Connected, one-off manual run). Hook lifecycle in a live session: **not verified**. |
+| Codex | `~/.codex/config.toml` (marked block) | `~/.codex/hooks.json` | Simulated only (CI). Real client **not verified** (not installable for an isolated test here). Codex requires you to trust new hooks in its own UI. |
+| Antigravity | `~/.gemini/config/mcp_config.json` | `~/.gemini/config/hooks.json` | Simulated only (CI). Real client **not verified** (GUI IDE; shares a global config). Hook behaviour on some platforms is reported to be inconsistent. |
 
 Everything about versions and operating systems is in [docs/compatibility.md](docs/compatibility.md). Nothing is claimed as tested that was not.
 
@@ -120,7 +121,19 @@ npm run demo          # = node examples/run-demo.mjs
 
 ## Screenshots
 
-No production screenshots are published here. VYMEM was extracted from a private, working deployment whose real screenshots contain project names, hardware inventory and other private details. Sanitized captures from that deployment exist locally and are **awaiting the owner's approval**; until then the repository contains only synthetic, clearly labelled visuals. See [docs/showcase](docs/showcase/README.md) for the provenance manifest.
+VYMEM was extracted from a real, working private deployment (Obsidian + a local MCP gateway + agent hooks). The two images below are **real captures from that private deployment**, sanitized by the owner before publication (cropped, with opaque masks over project names). They show the *kind of workflow this kit reimplements*. They are **not** output of this standalone VYMEM release, and they say nothing about how VYMEM behaves with live clients - for that see [Compatibility](docs/compatibility.md).
+
+<p align="center">
+  <img src="docs/screenshots/galaxy-sanitized.png" alt="Sanitized capture of a 3D Obsidian knowledge graph from the private deployment" width="780">
+  <br><sub><b>Sanitized capture from a private deployment.</b> The vault rendered as a connected knowledge graph in Obsidian (graph plugin view). Project-name labels are masked; folder names are the deployment's own.</sub>
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/handoff-sanitized.png" alt="Sanitized capture of an unapproved, evidence-based agent handoff note from the private deployment" width="720">
+  <br><sub><b>Sanitized capture from a private deployment.</b> A hook-written, <i>unapproved</i> handoff after an agent session in a fixture repository: git-observed evidence, an explicit "what this does not prove" section, no claimed test success. (A record identifier is masked; the note body is in Arabic, the original deployment's language.)</sub>
+</p>
+
+The synthetic, reproducible equivalent for this repository is the [demo above](#real-usage-examples). Provenance and review status of every visual: [docs/showcase](docs/showcase/README.md).
 
 ## Security model
 
@@ -139,16 +152,16 @@ One JSON file (default: `%APPDATA%\vymem\config.json` on Windows, `~/.config/vym
 ## Testing
 
 ```bash
-npm test               # 43 tests, node:test, no dependencies
+npm test               # 45 tests, node:test, no dependencies
 npm run demo           # 25-check end-to-end demonstration
 npm run audit:privacy  # release gate: personal data / credential / image-metadata scan
 ```
 
-The suite runs against throwaway homes, vaults and git repositories, with a filesystem tripwire that fails any access to a private vault path. See [docs/compatibility.md](docs/compatibility.md) for what has and has not been run, and on which platforms.
+The suite runs against throwaway homes, vaults and git repositories, with a filesystem tripwire that fails any access to a private vault path. CI runs all three on Ubuntu, Windows and macOS with Node 20, 22 and 24 (9 of 9 jobs passed for commit `00e7fda`; the badge above shows the latest run). Automated CI is **not** real-client testing: see [docs/compatibility.md](docs/compatibility.md).
 
 ## Limitations
 
-- Not validated with live Claude Code / Codex / Antigravity sessions by this project; hook payload field names come from observations of one private deployment and may differ between client versions.
+- No live-client lifecycle validation for any client (hooks driving a real agent session were not run); hook payload field names come from observations of one private deployment and may differ between client versions.
 - Clients often do not report command exit codes to hooks; then test outcomes are recorded as "not captured" - never as passed.
 - Search is keyword + synonym scoring, not semantic.
 - The frontmatter reader supports a flat subset of YAML.
@@ -159,11 +172,15 @@ Full list: [docs/security.md](docs/security.md#known-limitations) and [docs/comp
 
 ## Contributing
 
-Issues and pull requests are welcome once the license question below is settled. Keep the dependency footprint at zero, never add features without tests, and run `npm test && npm run audit:privacy` before opening a PR. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Issues and pull requests are welcome; contributions are accepted under Apache-2.0 (see [License](#license)). Keep the dependency footprint at zero, never add features without tests, and run `npm test && npm run audit:privacy` before opening a PR. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-**No license has been selected yet.** Until the owner chooses one, all rights are reserved and the code is published for inspection only. This is deliberate: the repository's origin is a private system and the redistribution terms have not been decided. The brand assets in `assets/` are initial vector directions supplied for this project.
+VYMEM is licensed under the **Apache License, Version 2.0** - see [LICENSE](LICENSE) (the unmodified text published by the Apache Software Foundation) and [NOTICE](NOTICE). Original source files carry an `SPDX-License-Identifier: Apache-2.0` header.
+
+Apache-2.0 includes an express patent license (Section 3): each contributor grants a license under patent claims *they are able to license* that are necessarily infringed by their contribution, and that license terminates for anyone who sues alleging the work infringes a patent. It does not register or create any patent, and does not grant rights a contributor does not hold. Section 6 means the license does not grant permission to use the "VYMEM" name or logo, and no trademark registration or clearance is claimed.
+
+Third-party material: none in the code (zero dependencies). The brand artwork was supplied by the owner for this project; the two screenshots depict third-party software UIs (Obsidian and a community plugin) and are published with the owner's approval - details in [NOTICE](NOTICE) and [docs/showcase](docs/showcase/README.md).
 
 ## Origin and naming
 

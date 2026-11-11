@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Lifecycle-hook adapters for Claude Code, Codex and Antigravity.
 // Contract: a hook never blocks, never throws, and always exits 0. Failures are written to the hook log.
 //

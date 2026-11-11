@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // VYMEM command line interface.
 import fs from 'node:fs';
 import path from 'node:path';

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Acceptance case 15: the kit works with the original private vault completely inaccessible,
 // and the repository contains no personal data. Also runs the end-to-end demo.
 import { test, after } from 'node:test';
@@ -5,6 +6,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import cp from 'node:child_process';
+import crypto from 'node:crypto';
 import { makeEnv, ROOT } from './helpers/env.mjs';
 import { scanTree, scanPng } from '../scripts/privacy-scan.mjs';
 
@@ -63,4 +65,45 @@ test('the end-to-end demo runs on a synthetic vault and every step passes', () =
   assert.equal(r.status, 0, r.stdout + r.stderr);
   assert.match(r.stdout, /DEMO RESULT: \d+\/\d+ checks passed/);
   assert.doesNotMatch(r.stdout, /FAIL/);
+});
+
+test('every published screenshot is owner-approved, labelled, hash-pinned and metadata-free', () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs', 'showcase', 'provenance-manifest.json'), 'utf8'));
+  const dir = path.join(ROOT, 'docs', 'screenshots');
+  const files = fs.existsSync(dir) ? fs.readdirSync(dir).filter(f => /\.(png|jpe?g|gif|webp)$/i.test(f)) : [];
+  assert.ok(files.length >= 1);
+  for (const f of files) {
+    const entry = manifest.published.find(p => p.file === `docs/screenshots/${f}`);
+    assert.ok(entry, `${f} is not listed in the provenance manifest`);
+    assert.equal(entry.owner_approval, 'approved');
+    assert.equal(entry.classification, 'real_sanitized_capture');
+    assert.equal(entry.label, 'Sanitized capture from a private deployment.');
+    const buf = fs.readFileSync(path.join(dir, f));
+    assert.equal(crypto.createHash('sha256').update(buf).digest('hex'), entry.sha256, `${f} differs from the approved version`);
+    assert.deepEqual(scanPng(buf), []);
+    assert.ok(buf.length < 1024 * 1024, `${f} is larger than 1 MiB`);
+  }
+  for (const entry of manifest.published.filter(p => p.classification === 'real_sanitized_capture')) assert.ok(files.includes(path.basename(entry.file)));
+});
+
+test('licensing: unmodified ASF Apache-2.0 text, NOTICE, package license, SPDX headers on original sources', () => {
+  const lic = fs.readFileSync(path.join(ROOT, 'LICENSE'));
+  assert.equal(lic.length, 11358);
+  assert.equal(crypto.createHash('sha256').update(lic).digest('hex'), 'cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30', 'LICENSE must be the unmodified ASF text');
+  assert.match(fs.readFileSync(path.join(ROOT, 'NOTICE'), 'utf8'), /Apache License, Version 2\.0/);
+  assert.equal(JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).license, 'Apache-2.0');
+  const missing = [];
+  const walk = d => {
+    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+      if (['.git', 'node_modules'].includes(e.name)) continue;
+      const p = path.join(d, e.name);
+      if (e.isDirectory()) walk(p);
+      else if (p.endsWith('.mjs') && !fs.readFileSync(p, 'utf8').split('\n').slice(0, 3).join('\n').includes('SPDX-License-Identifier: Apache-2.0')) missing.push(path.relative(ROOT, p));
+    }
+  };
+  walk(ROOT);
+  assert.deepEqual(missing, []);
+  for (const f of ['README.md', 'STATUS.md', 'CONTRIBUTING.md']) {
+    assert.doesNotMatch(fs.readFileSync(path.join(ROOT, f), 'utf8'), /no license|not yet chosen|license is not|all rights reserved|license not selected/i, `${f} still carries an outdated licensing statement`);
+  }
 });

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Configuration: defaults, validation, load/save, and the user-level config location.
 import fs from 'node:fs';
 import os from 'node:os';

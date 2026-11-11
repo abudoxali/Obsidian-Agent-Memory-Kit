@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Cross-platform test runner (Node 20 does not expand globs on Windows).
 // Every test process runs with an isolation tripwire that denies access to a (private) vault path.
 import fs from 'node:fs';

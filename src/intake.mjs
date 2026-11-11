@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Shared AI Inbox: agents may only write draft records (including structured handoffs) here.
 // Guarantees: confined path, secret rejection, anti-impersonation, deduplication, conflict detection,
 // backup before overwrite, audit log. Nothing written here is ever canonical or approved.

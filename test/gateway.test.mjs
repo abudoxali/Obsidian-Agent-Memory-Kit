@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Acceptance cases 1-10: fresh install, MCP initialisation, search, project context, handoff creation,
 // cross-agent retrieval, deduplication, conflict detection, secret redaction, protected knowledge.
 import { test, before, after } from 'node:test';

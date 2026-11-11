@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Small filesystem helpers: atomic writes, JSON IO, hashing, and a cross-process advisory lock.
 import fs from 'node:fs';
 import path from 'node:path';

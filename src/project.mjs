@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Apache-2.0
 // Project identification, project context retrieval and repository freshness detection.
 import fs from 'node:fs';
 import path from 'node:path';
