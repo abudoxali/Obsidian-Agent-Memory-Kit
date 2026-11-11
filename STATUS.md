@@ -43,7 +43,7 @@ Published: `docs/screenshots/galaxy-sanitized.png`, `docs/screenshots/handoff-sa
 
 | Check | Result |
 | --- | --- |
-| GitHub Actions run on `00e7fda` (confirmed from job logs) | 9/9 jobs: Ubuntu, Windows, macOS x Node 20, 22, 24 - each 43/43 tests, 25/25 demo, privacy scan clean |
+| GitHub Actions, confirmed from job logs | `00e7fda`: 9/9 jobs (43/43 tests each). `157d066` (Apache-2.0 + screenshots): 9/9 jobs - Ubuntu, Windows, macOS x Node 20, 22, 24 - each 45/45 tests, 25/25 demo, privacy scan clean |
 | Local (Windows 11 Pro 10.0.26200, Node v24.11.0, git 2.51.2), 2026-11-12 | `npm test` 45/45; demo 25/25; `audit:privacy` clean; also re-run under a temporary HOME/APPDATA/TEMP with the same results |
 | Independent installation (temp HOME, synthetic vault, disposable git repos, tripwire denying the original vault) | all 15 acceptance areas covered by tests and the demo; see below |
 | Real Claude Code 2.1.319 binary -> VYMEM MCP server (isolated `USERPROFILE`) | **Connected** (`claude mcp list`/`get`); one-off manual run |
@@ -66,7 +66,7 @@ Fresh init, MCP init, search, project context/identification, handoff generation
 
 ### CI for the Apache-2.0/screenshots commit
 
-The README badge shows the latest run. The matrix above is what was verified for `00e7fda`; the result for the release commit that added Apache-2.0 and the screenshots is reported in the release notes of this work and by the badge, not asserted here in advance.
+The README badge shows the latest run; the two verified runs are listed in the table above.
 
 ## Security audit (2026-11-12)
 

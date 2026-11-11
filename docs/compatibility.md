@@ -9,7 +9,7 @@ This page separates **what this project ran** (local run, CI, one manual client 
 | Operating system | Windows 11 Pro (10.0.26200) |
 | Node.js | v24.11.0 |
 | git | 2.51.2 (Windows) |
-| `npm test` | 45 tests, 45 passing (2026-11-12; the CI run in section 2 was on the earlier 43-test commit) |
+| `npm test` | 45 tests, 45 passing (2026-11-12) |
 | `node examples/run-demo.mjs` | 25 of 25 checks passing |
 | `npm run audit:privacy` | clean (working tree) |
 
@@ -17,7 +17,7 @@ All runs were on one machine. Tests use throwaway homes, vaults and git reposito
 
 ## 2. Automated CI (verified from the actual workflow logs)
 
-GitHub Actions run 43115162776 on commit `00e7fda` (workflow `.github/workflows/ci.yml`). Each job ran `npm test`, `node examples/run-demo.mjs --quiet` and `npm run audit:privacy`. Per-job log lines confirmed **43/43 tests, 25/25 demo checks and a clean privacy scan** in every cell:
+GitHub Actions (workflow `.github/workflows/ci.yml`), two runs confirmed from the job logs: run 43115162776 on `00e7fda` (**43/43** tests) and run 43118552695 on `157d066`, the Apache-2.0 + screenshots commit (**45/45** tests). In both, every job ran `npm test`, `node examples/run-demo.mjs --quiet` and `npm run audit:privacy`, and the logs showed 25/25 demo checks and a clean privacy scan in every cell:
 
 | OS (GitHub-hosted runner) | Node 20 | Node 22 | Node 24 |
 | --- | --- | --- | --- |

@@ -157,7 +157,7 @@ npm run demo           # 25-check end-to-end demonstration
 npm run audit:privacy  # release gate: personal data / credential / image-metadata scan
 ```
 
-The suite runs against throwaway homes, vaults and git repositories, with a filesystem tripwire that fails any access to a private vault path. CI runs all three on Ubuntu, Windows and macOS with Node 20, 22 and 24 (9 of 9 jobs passed for commit `00e7fda`; the badge above shows the latest run). Automated CI is **not** real-client testing: see [docs/compatibility.md](docs/compatibility.md).
+The suite runs against throwaway homes, vaults and git repositories, with a filesystem tripwire that fails any access to a private vault path. CI runs all three on Ubuntu, Windows and macOS with Node 20, 22 and 24 (9 of 9 jobs passed for commit `157d066`, 45 tests each; the badge above shows the latest run). Automated CI is **not** real-client testing: see [docs/compatibility.md](docs/compatibility.md).
 
 ## Limitations
 
