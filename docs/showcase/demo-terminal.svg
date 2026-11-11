@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1028" viewBox="0 0 1240 1028" role="img" aria-label="Output of the VYMEM synthetic demo">
+<rect width="1240" height="1028" rx="18" fill="#090D19"/><rect x="0" y="0" width="1240" height="52" rx="18" fill="#111831"/><rect x="0" y="34" width="1240" height="18" fill="#111831"/>
+<circle cx="30" cy="26" r="6" fill="#3A456C"/><circle cx="52" cy="26" r="6" fill="#3A456C"/><circle cx="74" cy="26" r="6" fill="#3A456C"/>
+<text x="102" y="31" font-family="Inter, 'Segoe UI', sans-serif" font-size="14" fill="#98A6C2">$ npm run demo   -  Illustrative demo: real execution on a synthetic vault, not a production capture</text>
+<g font-family="Consolas, 'Courier New', monospace" font-size="13">
+<text x="28" y="92" fill="#F8FAFC" font-weight="400" xml:space="preserve">VYMEM demo - synthetic vault, two fictional projects, two scripted MCP agents (real protocol, not real clients)</text>
+<text x="28" y="112" fill="#C8D2E8" font-weight="400" xml:space="preserve"></text>
+<text x="28" y="132" fill="#A78BFA" font-weight="700" xml:space="preserve">== 1. Initialise VYMEM against the synthetic vault (no private vault is involved)</text>
+<text x="28" y="152" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  vymem init succeeded</text>
+<text x="28" y="172" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  vymem doctor: MCP handshake passes</text>
+<text x="28" y="192" fill="#C8D2E8" font-weight="400" xml:space="preserve"></text>
+<text x="28" y="212" fill="#A78BFA" font-weight="700" xml:space="preserve">== 2. Agent A retrieves project context for orders-api</text>
+<text x="28" y="232" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  project identified from the working directory  -&gt; matched_by=local_path</text>
+<text x="28" y="252" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  purpose, blocker and related decision returned</text>
+<text x="28" y="272" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  repository freshness checked (in sync at recorded commit)  -&gt; in_sync_or_not_comparable</text>
+<text x="28" y="292" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  no handoffs exist yet</text>
+<text x="28" y="312" fill="#C8D2E8" font-weight="400" xml:space="preserve"></text>
+<text x="28" y="332" fill="#A78BFA" font-weight="700" xml:space="preserve">== 3. Agent A makes a controlled change in the orders-api repository</text>
+<text x="28" y="352" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  change committed in the fictional repository  -&gt; HEAD 35ec125</text>
+<text x="28" y="372" fill="#C8D2E8" font-weight="400" xml:space="preserve"></text>
+<text x="28" y="392" fill="#A78BFA" font-weight="700" xml:space="preserve">== 4. Agent A records an UNAPPROVED evidence-backed handoff</text>
+<text x="28" y="412" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  handoff stored in the AI Inbox  -&gt; Inbox/AI Inbox/handoffs/handoff-orders-api-jitter.md</text>
+<text x="28" y="432" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  handoff is NOT approved</text>
+<text x="28" y="452" fill="#C8D2E8" font-weight="400" xml:space="preserve"></text>
+<text x="28" y="472" fill="#A78BFA" font-weight="700" xml:space="preserve">== 5. Agent B (separate gateway process) retrieves the previous handoff</text>
+<text x="28" y="492" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  Agent B sees Agent A's handoff  -&gt; Inbox/AI Inbox/handoffs/handoff-orders-api-jitter.md</text>
+<text x="28" y="512" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  it is flagged unapproved / unverified</text>
+<text x="28" y="532" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  repository freshness now reports the vault note as behind HEAD  -&gt; repo_head_differs_from_note</text>
+<text x="28" y="552" fill="#C8D2E8" font-weight="400" xml:space="preserve"></text>
+<text x="28" y="572" fill="#A78BFA" font-weight="700" xml:space="preserve">== 6. Knowledge search returns relevant records</text>
+<text x="28" y="592" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  memory note and handoff are found  -&gt; Agent Memory/Retry wrappers need jitter.md | Inbox/AI Inbox/handoffs/handoff-orders-api-jitter.md | Projects/orders-api.md</text>
+<text x="28" y="612" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  handoff result is marked unverified</text>
+<text x="28" y="632" fill="#C8D2E8" font-weight="400" xml:space="preserve"></text>
+<text x="28" y="652" fill="#A78BFA" font-weight="700" xml:space="preserve">== 7. Duplicate updates are prevented</text>
+<text x="28" y="672" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  identical resubmission is a no-op</text>
+<text x="28" y="692" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  file is byte-identical and no extra files exist</text>
+<text x="28" y="712" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  another agent cannot overwrite it (conflict)  -&gt; CONFLICT_DETECTED</text>
+<text x="28" y="732" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  credential-like text is rejected  -&gt; REJECTED_SECRET_DETECTED</text>
+<text x="28" y="752" fill="#C8D2E8" font-weight="400" xml:space="preserve"></text>
+<text x="28" y="772" fill="#A78BFA" font-weight="700" xml:space="preserve">== 8. Approved and locked canonical records stay protected</text>
+<text x="28" y="792" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  human_locked project note cannot even receive a proposal  -&gt; HUMAN_LOCKED</text>
+<text x="28" y="812" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  proposal staged; canonical note untouched</text>
+<text x="28" y="832" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  no MCP tool can apply a proposal or approve a record  -&gt; 7 tools</text>
+<text x="28" y="852" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  owner approves the handoff via the local CLI  -&gt; APPROVED</text>
+<text x="28" y="872" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  approved record is now protected from agents  -&gt; HUMAN_LOCKED</text>
+<text x="28" y="892" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  owner applies the proposal via the local CLI (with backup)</text>
+<text x="28" y="912" fill="#C8D2E8" font-weight="400" xml:space="preserve">  <tspan fill="#2DD4BF" font-weight="700">PASS</tspan>  canonical note now contains the approved section</text>
+<text x="28" y="932" fill="#C8D2E8" font-weight="400" xml:space="preserve"></text>
+<text x="28" y="952" fill="#2DD4BF" font-weight="700" xml:space="preserve">DEMO RESULT: 25/25 checks passed</text>
+</g></svg>

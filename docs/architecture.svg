@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="VYMEM architecture: coding agents use lifecycle hooks and an MCP gateway to read and write an Obsidian vault; only the owner approves canonical changes.">
+<defs>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8B5CF6"/></marker>
+<marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2DD4BF"/></marker>
+</defs>
+<rect width="1280" height="720" rx="24" fill="#090D19"/>
+<g font-family="Inter, 'Segoe UI', sans-serif" fill="#F8FAFC">
+<text x="48" y="58" font-size="26" font-weight="700">VYMEM architecture</text>
+<text x="48" y="84" font-size="15" fill="#98A6C2">Everything runs locally. Solid violet = agent-initiated, teal = owner-initiated.</text>
+
+<text x="60" y="130" font-size="13" font-weight="600" letter-spacing="1.5" fill="#98A6C2">AI CODING CLIENTS</text>
+<g font-size="17" font-weight="600">
+<rect x="60" y="146" width="240" height="84" rx="12" fill="#111831" stroke="#2DD4BF" stroke-width="2"/><text x="84" y="182">Claude Code</text><text x="84" y="208" font-size="13" font-weight="400" fill="#98A6C2">MCP + hooks</text>
+<rect x="60" y="256" width="240" height="84" rx="12" fill="#111831" stroke="#60A5FA" stroke-width="2"/><text x="84" y="292">Codex</text><text x="84" y="318" font-size="13" font-weight="400" fill="#98A6C2">MCP + hooks</text>
+<rect x="60" y="366" width="240" height="84" rx="12" fill="#111831" stroke="#A78BFA" stroke-width="2"/><text x="84" y="402">Antigravity</text><text x="84" y="428" font-size="13" font-weight="400" fill="#98A6C2">MCP + hooks</text>
+</g>
+
+<text x="372" y="130" font-size="13" font-weight="600" letter-spacing="1.5" fill="#98A6C2">LIFECYCLE HOOKS (OPT-IN)</text>
+<rect x="372" y="146" width="236" height="304" rx="12" fill="#111831" stroke="#3A456C"/>
+<g font-size="14"><text x="392" y="182" font-weight="600">SessionStart</text><text x="392" y="204" font-size="13" fill="#98A6C2">inject briefing from vault</text>
+<text x="392" y="248" font-weight="600">PostToolUse</text><text x="392" y="270" font-size="13" fill="#98A6C2">log edits + test commands</text>
+<text x="392" y="314" font-weight="600">Stop / SessionEnd</text><text x="392" y="336" font-size="13" fill="#98A6C2">write unapproved handoff</text>
+<text x="392" y="392" font-size="12" fill="#98A6C2">never blocks, always exits 0</text><text x="392" y="412" font-size="12" fill="#98A6C2">secrets redacted before storage</text></g>
+
+<text x="680" y="130" font-size="13" font-weight="600" letter-spacing="1.5" fill="#98A6C2">MCP GATEWAY  (vymem mcp, stdio)</text>
+<rect x="680" y="146" width="268" height="304" rx="12" fill="#111831" stroke="#8B5CF6" stroke-width="2"/>
+<g font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#C8D2E8">
+<text x="700" y="178">knowledge_search</text><text x="700" y="200">knowledge_read</text><text x="700" y="222">identify_project</text><text x="700" y="244">get_project_context</text><text x="700" y="266">list_pending_updates</text>
+<text x="700" y="296" fill="#2DD4BF">submit_knowledge_entry</text><text x="700" y="318" fill="#2DD4BF">propose_update</text></g>
+<g font-size="12" fill="#98A6C2"><text x="700" y="354">read tools above, write tools in teal</text><text x="700" y="378">path policy · secret screen</text><text x="700" y="398">dedup · conflict check · audit log</text><text x="700" y="418" fill="#F8FAFC">no tool applies or approves anything</text></g>
+
+<text x="1020" y="130" font-size="13" font-weight="600" letter-spacing="1.5" fill="#98A6C2">YOUR OBSIDIAN VAULT</text>
+<rect x="1020" y="146" width="220" height="92" rx="12" fill="#111831" stroke="#8B5CF6" stroke-width="2"/><text x="1038" y="176" font-size="15" font-weight="600">Canonical notes</text><text x="1038" y="198" font-size="12" fill="#98A6C2">Projects · Decisions · Memory</text><text x="1038" y="218" font-size="12" fill="#98A6C2">owner-maintained, lockable</text>
+<rect x="1020" y="256" width="220" height="92" rx="12" fill="#111831" stroke="#3A456C"/><text x="1038" y="286" font-size="15" font-weight="600">AI Inbox</text><text x="1038" y="308" font-size="12" fill="#98A6C2">drafts + agent handoffs</text><text x="1038" y="328" font-size="12" fill="#98A6C2">always approved_by_owner: false</text>
+<rect x="1020" y="366" width="220" height="84" rx="12" fill="#111831" stroke="#3A456C"/><text x="1038" y="396" font-size="15" font-weight="600">Update proposals</text><text x="1038" y="418" font-size="12" fill="#98A6C2">staged diffs awaiting review</text><text x="1038" y="436" font-size="12" fill="#98A6C2">target note untouched</text>
+</g>
+
+<g stroke="#8B5CF6" stroke-width="2.5" fill="none" marker-end="url(#a)">
+<path d="M300 188H372"/><path d="M300 298H372"/><path d="M300 408H372"/>
+<path d="M608 298H680"/>
+<path d="M1020 190H948"/><path d="M948 302H1020"/><path d="M948 408H1020"/>
+</g>
+<g stroke="#3A456C" stroke-width="2" fill="none" stroke-dasharray="6 6"><path d="M300 466C 420 520 560 520 680 466" marker-end="url(#a)"/></g>
+<text x="400" y="516" font-family="Inter, 'Segoe UI', sans-serif" font-size="12" fill="#98A6C2">clients call MCP tools directly as well</text>
+
+<rect x="680" y="560" width="560" height="116" rx="14" fill="#0F2A2A" stroke="#2DD4BF" stroke-width="2"/>
+<g font-family="Inter, 'Segoe UI', sans-serif" fill="#F8FAFC"><text x="704" y="594" font-size="16" font-weight="700">Owner, at a local terminal</text>
+<text x="704" y="622" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#9FEDE2">vymem approve &lt;record&gt; --by you --yes</text>
+<text x="704" y="644" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#9FEDE2">vymem proposals apply &lt;id&gt; --by you --yes</text>
+<text x="704" y="665" font-size="12" fill="#98A6C2">hash-checked, backed up, audited, reversible with rollback</text></g>
+<path d="M1240 618H1264V192H1242" stroke="#2DD4BF" stroke-width="2.5" fill="none" marker-end="url(#g)"/>
+<text x="60" y="612" font-family="Inter, 'Segoe UI', sans-serif" font-size="13" fill="#98A6C2">MCP permission limits are a policy of the gateway process, not an operating-system sandbox.</text>
+<text x="60" y="634" font-family="Inter, 'Segoe UI', sans-serif" font-size="13" fill="#98A6C2">An agent with shell access can still read or edit your files directly. See docs/security.md.</text>
+</svg>

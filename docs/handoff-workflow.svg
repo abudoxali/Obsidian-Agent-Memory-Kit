@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="710" viewBox="0 0 1280 710" role="img" aria-label="Handoff workflow between two agents and the owner">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8B5CF6"/></marker><marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2DD4BF"/></marker></defs>
+<rect width="1280" height="710" rx="24" fill="#090D19"/>
+<g font-family="Inter, 'Segoe UI', sans-serif" fill="#F8FAFC">
+<text x="48" y="54" font-size="26" font-weight="700">Evidence-backed handoff workflow</text>
+<text x="48" y="78" font-size="15" fill="#98A6C2">Illustrative diagram of the behaviour exercised by examples/run-demo.mjs (steps 2-8).</text>
+<rect x="40" y="96" width="220" height="56" rx="12" fill="#111831" stroke="#2DD4BF" stroke-width="2"/><text x="150" y="122" text-anchor="middle" font-size="15" font-weight="600">Agent A</text><text x="150" y="141" text-anchor="middle" font-size="11" fill="#98A6C2">scripted MCP client</text>
+<path d="M150 152V640" stroke="#3A456C" stroke-dasharray="4 6"/>
+<rect x="360" y="96" width="220" height="56" rx="12" fill="#111831" stroke="#8B5CF6" stroke-width="2"/><text x="470" y="122" text-anchor="middle" font-size="15" font-weight="600">VYMEM gateway + vault</text><text x="470" y="141" text-anchor="middle" font-size="11" fill="#98A6C2">vymem mcp</text>
+<path d="M470 152V640" stroke="#3A456C" stroke-dasharray="4 6"/>
+<rect x="680" y="96" width="220" height="56" rx="12" fill="#111831" stroke="#60A5FA" stroke-width="2"/><text x="790" y="122" text-anchor="middle" font-size="15" font-weight="600">Agent B</text><text x="790" y="141" text-anchor="middle" font-size="11" fill="#98A6C2">scripted MCP client</text>
+<path d="M790 152V640" stroke="#3A456C" stroke-dasharray="4 6"/>
+<rect x="990" y="96" width="220" height="56" rx="12" fill="#111831" stroke="#A78BFA" stroke-width="2"/><text x="1100" y="122" text-anchor="middle" font-size="15" font-weight="600">Owner</text><text x="1100" y="141" text-anchor="middle" font-size="11" fill="#98A6C2">local CLI only</text>
+<path d="M1100 152V640" stroke="#3A456C" stroke-dasharray="4 6"/>
+<path d="M150 190H470" stroke="#8B5CF6" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="310" y="182" text-anchor="middle" font-size="13" fill="#E6ECF8">1  get_project_context</text>
+<path d="M470 236H150" stroke="#8B5CF6" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="310" y="228" text-anchor="middle" font-size="13" fill="#E6ECF8">2  canonical notes + freshness + earlier handoffs</text>
+<path d="M150 282H470" stroke="#8B5CF6" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="310" y="274" text-anchor="middle" font-size="13" fill="#E6ECF8">3  submit_knowledge_entry (agent_handoff)</text>
+<path d="M470 328H150" stroke="#2DD4BF" stroke-width="2.5" marker-end="url(#g)"/>
+<text x="310" y="320" text-anchor="middle" font-size="13" fill="#E6ECF8">4  WRITTEN_TO_AI_INBOX · approved_by_owner: false</text>
+<path d="M790 374H470" stroke="#8B5CF6" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="630" y="366" text-anchor="middle" font-size="13" fill="#E6ECF8">5  get_project_context (separate process)</text>
+<path d="M470 420H790" stroke="#8B5CF6" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="630" y="412" text-anchor="middle" font-size="13" fill="#E6ECF8">6  A’s handoff, flagged unverified</text>
+<path d="M150 466H470" stroke="#8B5CF6" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="310" y="458" text-anchor="middle" font-size="13" fill="#E6ECF8">7  same handoff again  →  DEDUPLICATED_NO_OP</text>
+<path d="M790 512H470" stroke="#8B5CF6" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="630" y="504" text-anchor="middle" font-size="13" fill="#E6ECF8">8  overwrite A’s record  →  CONFLICT_DETECTED</text>
+<path d="M1100 558H470" stroke="#2DD4BF" stroke-width="2.5" marker-end="url(#g)"/>
+<text x="785" y="550" text-anchor="middle" font-size="13" fill="#E6ECF8">9  vymem approve (local terminal)</text>
+<path d="M150 604H470" stroke="#8B5CF6" stroke-width="2.5" marker-end="url(#a)"/>
+<text x="310" y="596" text-anchor="middle" font-size="13" fill="#E6ECF8">10  agent rewrite attempt  →  HUMAN_LOCKED</text>
+
+<text x="48" y="686" font-size="12" fill="#98A6C2">Violet = agent-initiated MCP call. Teal = response or owner-initiated action.</text>
+</g></svg>

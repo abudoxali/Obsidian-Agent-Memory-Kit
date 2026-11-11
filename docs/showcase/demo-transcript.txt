@@ -1,0 +1,44 @@
+VYMEM demo - synthetic vault, two fictional projects, two scripted MCP agents (real protocol, not real clients)
+
+== 1. Initialise VYMEM against the synthetic vault (no private vault is involved)
+  PASS  vymem init succeeded
+  PASS  vymem doctor: MCP handshake passes
+
+== 2. Agent A retrieves project context for orders-api
+  PASS  project identified from the working directory  -> matched_by=local_path
+  PASS  purpose, blocker and related decision returned
+  PASS  repository freshness checked (in sync at recorded commit)  -> in_sync_or_not_comparable
+  PASS  no handoffs exist yet
+
+== 3. Agent A makes a controlled change in the orders-api repository
+  PASS  change committed in the fictional repository  -> HEAD 35ec125
+
+== 4. Agent A records an UNAPPROVED evidence-backed handoff
+  PASS  handoff stored in the AI Inbox  -> Inbox/AI Inbox/handoffs/handoff-orders-api-jitter.md
+  PASS  handoff is NOT approved
+
+== 5. Agent B (separate gateway process) retrieves the previous handoff
+  PASS  Agent B sees Agent A's handoff  -> Inbox/AI Inbox/handoffs/handoff-orders-api-jitter.md
+  PASS  it is flagged unapproved / unverified
+  PASS  repository freshness now reports the vault note as behind HEAD  -> repo_head_differs_from_note
+
+== 6. Knowledge search returns relevant records
+  PASS  memory note and handoff are found  -> Agent Memory/Retry wrappers need jitter.md | Inbox/AI Inbox/handoffs/handoff-orders-api-jitter.md | Projects/orders-api.md
+  PASS  handoff result is marked unverified
+
+== 7. Duplicate updates are prevented
+  PASS  identical resubmission is a no-op
+  PASS  file is byte-identical and no extra files exist
+  PASS  another agent cannot overwrite it (conflict)  -> CONFLICT_DETECTED
+  PASS  credential-like text is rejected  -> REJECTED_SECRET_DETECTED
+
+== 8. Approved and locked canonical records stay protected
+  PASS  human_locked project note cannot even receive a proposal  -> HUMAN_LOCKED
+  PASS  proposal staged; canonical note untouched
+  PASS  no MCP tool can apply a proposal or approve a record  -> 7 tools
+  PASS  owner approves the handoff via the local CLI  -> APPROVED
+  PASS  approved record is now protected from agents  -> HUMAN_LOCKED
+  PASS  owner applies the proposal via the local CLI (with backup)
+  PASS  canonical note now contains the approved section
+
+DEMO RESULT: 25/25 checks passed

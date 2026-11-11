@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-label="VYMEM - shared memory for coding agents">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0A1020"/><stop offset="1" stop-color="#080B16"/></linearGradient><linearGradient id="p" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#6DDAD6"/><stop offset="1" stop-color="#9A75FA"/></linearGradient><radialGradient id="halo"><stop stop-color="#8B5CF6" stop-opacity=".22"/><stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/></radialGradient></defs>
+<rect width="1280" height="640" fill="url(#bg)"/><g opacity=".22" stroke="#31415F"><path d="M0 160H1280M0 320H1280M0 480H1280"/><path d="M160 0V640M320 0V640M480 0V640M640 0V640M800 0V640M960 0V640M1120 0V640"/></g>
+<circle cx="975" cy="300" r="300" fill="url(#halo)"/>
+<g stroke="#425A88" stroke-width="5" fill="none" opacity=".9"><path d="M850 160L968 300L1120 175M968 300L1020 450"/></g>
+<circle cx="850" cy="160" r="42" fill="#101D32" stroke="#2DD4BF" stroke-width="8"/><circle cx="1120" cy="175" r="42" fill="#101D32" stroke="#60A5FA" stroke-width="8"/><circle cx="1020" cy="450" r="42" fill="#101D32" stroke="#A78BFA" stroke-width="8"/>
+<circle cx="968" cy="300" r="84" fill="#161331" stroke="#A78BFA" stroke-width="10"/><circle cx="968" cy="300" r="31" fill="#B5A0FD"/>
+<circle cx="850" cy="160" r="12" fill="#2DD4BF"/><circle cx="1120" cy="175" r="12" fill="#60A5FA"/><circle cx="1020" cy="450" r="12" fill="#A78BFA"/>
+<text x="90" y="262" font-family="Inter, 'Segoe UI', sans-serif" font-size="132" font-weight="800" letter-spacing="7" fill="#F8FAFC">VYMEM</text>
+<rect x="94" y="292" width="280" height="6" rx="3" fill="url(#p)"/>
+<text x="92" y="372" font-family="Inter, 'Segoe UI', sans-serif" font-size="46" font-weight="600" fill="#DFE5F0">Shared memory for coding agents</text>
+<text x="94" y="428" font-family="Inter, 'Segoe UI', sans-serif" font-size="29" fill="#98A6C2">Local-first · Obsidian · MCP · Evidence-backed handoffs</text>
+<text x="94" y="560" font-family="Consolas, 'Courier New', monospace" font-size="21" fill="#B8C4DD">Claude Code  ·  Codex  ·  Antigravity</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="VYMEM horizontal logo">
+<rect width="1200" height="300" rx="34" fill="#090D19"/>
+<g transform="translate(45,36) scale(.44)"><circle cx="256" cy="256" r="205" fill="#161D36"/><path d="M256 245 L146 178 M264 244 L368 187 M256 268 L255 380" stroke="#9270EF" stroke-width="9" stroke-linecap="round"/><circle cx="146" cy="178" r="29" fill="#2DD4BF"/><circle cx="368" cy="187" r="29" fill="#60A5FA"/><circle cx="255" cy="380" r="29" fill="#A78BFA"/><circle cx="256" cy="256" r="64" fill="#0F162C" stroke="#AB92FF" stroke-width="7"/><circle cx="256" cy="256" r="18" fill="#BCA6FF"/></g>
+<text x="315" y="162" fill="#F8FAFC" font-family="Inter, Segoe UI, sans-serif" font-weight="750" font-size="92" letter-spacing="8">VYMEM</text>
+<text x="317" y="212" fill="#98A6C2" font-family="Inter, Segoe UI, sans-serif" font-weight="400" font-size="29" letter-spacing="1.7">SHARED MEMORY FOR CODING AGENTS</text>
+</svg>
